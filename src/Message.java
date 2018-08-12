@@ -1,8 +1,7 @@
-import processing.core.*;
-
+import processing.core.PApplet;
 
 public class Message extends GameObject {
-
+	PApplet parent;
 	//public Message() {
 		// TODO Auto-generated constructor stub
 	//}
@@ -26,9 +25,9 @@ public class Message extends GameObject {
 	  }
 
 	  public void show() {
-	    fill(255, alpha);
-	    textSize(size);
-	    text(msg, x, y, z);
+	    parent.fill(255, alpha);
+	    parent.textSize(size);
+	    parent.text(msg, x, y, z);
 	  }
 
 	  public void act() {

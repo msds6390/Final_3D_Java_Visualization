@@ -1,6 +1,6 @@
-import processing.core.*; 
+import processing.core.PApplet; 
 public class hasDied extends GameObject {
-
+	PApplet parent;
 	public boolean hasDied() {
 	    if (dz > 100 || hp <= 0) {
 	        score += 10;

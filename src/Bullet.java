@@ -1,6 +1,7 @@
-import processing.core.*; 
+import processing.core.PApplet; 
 public class Bullet extends GameObject {
-
+	PApplet parent;
+	Ship myShip; // Not sure this will call the ship, Java may not have global variables
 	  // default constructor
 	  Bullet() {
 	    x = myShip.x;
@@ -12,7 +13,7 @@ public class Bullet extends GameObject {
 	    hp = 1;
 	  }
 	  
-	  // overloaded contructor
+	  // overloaded constructor
 	  Bullet(float incomingDX, float incomingDY, float incomingDZ) {
 	    x = myShip.x;
 	    y = myShip.y;
@@ -25,12 +26,12 @@ public class Bullet extends GameObject {
 	  }
 
 	  public void show() {
-	    pushMatrix();
-	    translate(x, y, z);
+	    parent.pushMatrix();
+	    parent.translate(x, y, z);
 	    //fill(250, 240, 142);
-	    fill(electricgreen);
-	    box(5);
-	    popMatrix();
+	    parent.fill(0xff00E600); // electric green
+	    parent.box(5);
+	    parent.popMatrix();
 	  }
 
 	  public void act() {
@@ -42,5 +43,4 @@ public class Bullet extends GameObject {
 	  public boolean hasDied() {
 	    return z < -10000 || hp <= 0;
 	  }
-
 }

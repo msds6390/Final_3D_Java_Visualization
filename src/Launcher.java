@@ -1,13 +1,13 @@
-import processing.core.*; 
+import processing.core.PApplet; 
 public class Launcher extends GameObject {
-
+	PApplet parent;
 	//public Launcher() {
 		// TODO Auto-generated constructor stub
 	//}
 
 	  Launcher() {
-	    x = width/2;
-	    y = height/2;
+	    x = parent.width/2;
+	    y = parent.height/2;
 	    z = -10000;
 	    dx = 0;
 	    dy = 0;
@@ -15,31 +15,31 @@ public class Launcher extends GameObject {
 	  }
 
 	  public void show() {
-	    pushMatrix();
-	    translate(x, y, z);
-	    fill(100);
-	    sphereDetail(5);
-	    sphere(5);
-	    popMatrix();
+		parent.pushMatrix();
+		parent.translate(x, y, z);
+		parent.fill(100);
+		parent.sphereDetail(5);
+		parent.sphere(5);
+		parent.popMatrix();
 	  }
 
 	  public void act() {
-	    if (frameCount == 10 ) {
-	      pushMatrix();
-	      engine.add(new Message("LEVEL 1", width/2, height/4, -1000, 40));
-	      popMatrix();
+	    if (parent.frameCount == 10 ) {
+	      parent.pushMatrix();
+	      engine.add(new Message("LEVEL 1", parent.width/2, parent.height/4, -1000, 40));
+	      parent.popMatrix();
 	    //} else if(score == 10) {
 	    //  engine.add(new Message("LEVEL 2", width/2, height/4, -1000, 40));
 	    //} else if(score == 20) {
 	    //  engine.add(new Message("LEVEL 3", width/2, height/4, -1000, 40));
-	    } else if (frameCount < 600) {
+	    } else if (parent.frameCount < 600) {
 	      straightLine(100);
-	    } else if (frameCount == 3000) {
-	      pushMatrix();
-	      engine.add(new Message("LEVEL 2", width/2, height/4, -1000, 40));
-	      popMatrix();
+	    } else if (parent.frameCount == 3000) {
+	      parent.pushMatrix();
+	      engine.add(new Message("LEVEL 2", parent.width/2, parent.height/4, -1000, 40));
+	      parent.popMatrix();
 	      straightLine(400);
-	    } else if (frameCount < 2000) {
+	    } else if (parent.frameCount < 2000) {
 	      //doubleLine();
 	      randomWave();
 	    } else {
@@ -49,7 +49,7 @@ public class Launcher extends GameObject {
 
 	  public void straightLine(float incomingX) {
 	    x = incomingX;
-	    if (frameCount % 100 == 0) {
+	    if (parent.frameCount % 100 == 0) {
 	      engine.add(new Enemy(x, y, z));
 	    }
 	  }
@@ -57,9 +57,9 @@ public class Launcher extends GameObject {
 	  public void doubleLine() {}
 
 	  public void randomWave() {
-	    x = random(50, width - 50);
-	    y = random(50, height - 50);
-	    if (frameCount % 100 == 0) {
+	    x = parent.random(50, parent.width - 50);
+	    y = parent.random(50, parent.height - 50);
+	    if (parent.frameCount % 100 == 0) {
 	      engine.add(new FastEnemy(x, y, z));
 	    }
 	  }
@@ -67,5 +67,4 @@ public class Launcher extends GameObject {
 	  public boolean hasDied() {
 	    return false;
 	  }
-
 }

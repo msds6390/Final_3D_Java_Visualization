@@ -1,22 +1,22 @@
-import processing.core.*; 
+import processing.core.PApplet; 
 public class Particle extends GameObject {
-
+	PApplet parent;
 	 Particle(float incomingX, float incomingY, float incomingZ) {
 		    x = incomingX;
 		    y = incomingY;
 		    z = incomingZ;
-		    dz = random(-5, 5);
-		    dy = random(-5, 5);
-		    dz = random (-5, 5);
-		    hp = random(100, 255);
+		    dz = parent.random(-5, 5);
+		    dy = parent.random(-5, 5);
+		    dz = parent.random (-5, 5);
+		    hp = parent.random(100, 255);
 		  }
 
 		  public void show() {
-		    pushMatrix();
-		    translate(x, y, z);
-		    fill(orange, hp);
-		    box(3);
-		    popMatrix();
+			parent.pushMatrix();
+			parent.translate(x, y, z);
+			parent.fill(0xffEE7036, hp); // orange
+		    parent.box(3);
+		    parent.popMatrix();
 		  }
 
 		  public void act() {

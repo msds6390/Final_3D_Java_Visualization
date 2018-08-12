@@ -1,7 +1,6 @@
-import processing.core.*; 
+import processing.core.PApplet; 
 public class Enemy extends GameObject {
-
-
+	PApplet parent;
 	  Enemy(float incomingX, float incomingY, float incomingZ) {
 	    x = incomingX;
 	    y = incomingY;
@@ -13,11 +12,11 @@ public class Enemy extends GameObject {
 	  }
 	  
 	  public void show() {
-	    pushMatrix();
-	    translate(x, y, z);
-	    fill(orange);
-	    box(40);
-	    popMatrix();
+	    parent.pushMatrix();
+	    parent.translate(x, y, z);
+	    parent.fill(0xffEE7036); // orange
+	    parent.box(40);
+	    parent.popMatrix();
 	  }
 	  
 	  public void act() {
@@ -50,4 +49,5 @@ public class Enemy extends GameObject {
 	      } 
 	      i++;
 	    }
+	  }
 }

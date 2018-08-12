@@ -1,20 +1,14 @@
 import java.util.ArrayList;
-import java.util.HashMap; 
-import java.util.ArrayList; 
-import java.io.File; 
-import java.io.BufferedReader; 
-import java.io.PrintWriter; 
-import java.io.InputStream; 
-import java.io.OutputStream; 
-import java.io.IOException; 
 
-import processing.core.*;
+import processing.core.PApplet;
+
 public class StarSystem {
+	PApplet parent;
+	ArrayList<Star> stars;
 
-	 ArrayList<Star> stars;
-
-	  StarSystem(){
-	    stars = new ArrayList<Star>();
+	  StarSystem(PApplet p){
+	    parent = p;
+		stars = new ArrayList<Star>(this);
 	  }
 
 	  public void addStar() {

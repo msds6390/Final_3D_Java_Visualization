@@ -1,5 +1,6 @@
-import processing.core.*; 
+import processing.core.PApplet; 
 public abstract class Gun {
+		PApplet parent;
 		  // threshold how long it takes before you can shoot again (rate of fire)
 		  // cooldown is how much you recharge so far
 		  float cooldown, threshold;  

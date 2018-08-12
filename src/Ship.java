@@ -1,6 +1,6 @@
-import processing.core.*; 
+import processing.core.PApplet; 
 public class Ship extends GameObject {
-
+	PApplet parent;
 //	public Ship() {
 //		// TODO Auto-generated constructor stub
 //	}
@@ -8,10 +8,11 @@ public class Ship extends GameObject {
 	  Gun myGun;
 
 	  // constructor
-	  Ship() {
-	    x = width/2;  // start at center of screen
-	    y = width/2;  // start at center of screen
-	    z = width/2;
+	  Ship(PApplet p) {
+		parent = p;
+	    x = parent.width/2;  // start at center of screen
+	    y = parent.width/2;  // start at center of screen
+	    z = parent.width/2;
 	    dx = 0;
 	    dy = 0;
 	    dz = 0;
@@ -24,13 +25,13 @@ public class Ship extends GameObject {
 
 	  // 3 methods (functions)
 	  public void show() {
-	    pushMatrix();
+		  parent.pushMatrix();
 	    //fill(250, 240, 142);
 	    //fill(electricgreen);
-	    fill(spacecadet);
-	    translate(x, y, z);
-	    box(size);
-	    popMatrix();
+		  parent.fill(0xff05CBFA); //spacecadet
+		  parent.translate(x, y, z);
+		  parent.box(size);
+		  parent.popMatrix();
 	  }
 
 	  public void act() {

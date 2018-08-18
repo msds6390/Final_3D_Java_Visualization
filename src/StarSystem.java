@@ -8,10 +8,10 @@ public class StarSystem {
 	ArrayList<GameObject> engine;
 	int numStars;
 
-	//public StarSystem() {}
+	public StarSystem() {}
 	  
-	public StarSystem(){
-		//parent = p;
+	public StarSystem(PApplet p){
+		parent = p;
 	    //engine = eng;
 	    numStars = 400;
 		stars = new ArrayList<Star>();  

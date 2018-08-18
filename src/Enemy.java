@@ -4,6 +4,7 @@ import processing.core.PApplet;
 public class Enemy extends GameObject {
 	PApplet parent;
 	ArrayList<GameObject> engine;
+	public int score;
 	public Enemy() {}
 
 	public Enemy(PApplet p, ArrayList<GameObject> eng, float incomingX, float incomingY, float incomingZ) {
@@ -14,8 +15,9 @@ public class Enemy extends GameObject {
 	    z = incomingZ;
 	    dx = 0;
 	    dy = 0;
-	    dz = +10;
+	    dz = 10;
 	    hp = 5;
+	    //this.score = score;
 	}
 	  
 	public void show() {
@@ -70,5 +72,14 @@ public class Enemy extends GameObject {
 		        return true;
 		    }
 		        return false;   
+	}
+	
+	public boolean hasDied() {
+		if (hp <= 0) {
+			engine.add(new Message(parent, engine, "+10", x, y, z, 20));
+			score += 10;
+			return true;
+	    }
+	    return false;  
 	}
 }

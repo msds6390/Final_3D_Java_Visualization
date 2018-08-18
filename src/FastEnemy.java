@@ -9,7 +9,7 @@ public class FastEnemy extends Enemy {
 		super(p, eng, incomingX, incomingY, incomingZ);
 		parent = p;
 		engine = eng;
-	    dz = 30;  // increasing speed (10 for regular enemy)
+	    dz = 20;  // increasing speed (10 for regular enemy)
 	}
 
 }

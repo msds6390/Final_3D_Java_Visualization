@@ -4,19 +4,13 @@ import processing.core.PApplet;
 
 public class Message extends GameObject {
 	PApplet parent;
-	ArrayList<GameObject> engine;
-	//public Message() {
-		// TODO Auto-generated constructor stub
-	//}
-
-
-	  float alpha;
-	  float size;
-	  String msg;
-
-
-	  Message(PApplet p, ArrayList<GameObject> eng, String _msg, float _x, float _y, float _z, float _size) {
-	    parent = p;
+	ArrayList<GameObject> engine;  
+	float alpha;
+	float size;
+	String msg;
+  
+	Message(PApplet p, ArrayList<GameObject> eng, String _msg, float _x, float _y, float _z, float _size) {
+		parent = p;
 	    engine = eng;
 		x = _x;
 	    y = _y;
@@ -28,21 +22,21 @@ public class Message extends GameObject {
 	    hp = 10;
 
 	  }
-
-	  public void show() {
+  
+	public void show() {
 	    parent.fill(255, alpha);
 	    parent.textSize(size);
-	    parent.text(msg, x, y, z);
-	  }
-
-	  public void act() {
+	    parent.text(msg, x, y, z);  
+	}
+  
+	public void act() {
 	    //y = y + 3;
 	    z = z + 3;
 	    alpha = alpha - 3;
-	    if (alpha <= 0) hp = 0;
-	  }
-
-	  public boolean hasDied() {
-	    return z > 100 || hp == 0;
-	  }
+	    if (alpha <= 0) hp = 0;  
+	}
+  
+	public boolean hasDied() {
+	    return z > 100 || hp == 0;  
+	}
 }

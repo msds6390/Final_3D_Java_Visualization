@@ -17,9 +17,10 @@ public class Bullet extends GameObject {
 	  }
 	  
 	  // overloaded constructor
-	  public Bullet(PApplet p, ArrayList<GameObject> eng, float incomingDX, float incomingDY, float incomingDZ) {
+	  public Bullet(PApplet p, ArrayList<GameObject> eng, Ship ship, float incomingDX, float incomingDY, float incomingDZ) {
 	    parent = p;
 	    engine = eng;
+	    myShip = ship;
 		x = myShip.x;
 	    y = myShip.y;
 	    z = myShip.z;

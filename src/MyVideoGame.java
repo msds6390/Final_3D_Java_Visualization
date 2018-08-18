@@ -60,13 +60,13 @@ public class MyVideoGame extends PApplet {
 	  
 	  stroke(0);
 	  strokeWeight(1);
-	  ss = new StarSystem();
+	  ss = new StarSystem(this);
 	  ss.addStar();
 	  engine = new ArrayList<GameObject>(10000); // instantiate the list - Arbitrary number of objects to create
 	  rectMode(CENTER);
-	  myShip = new Ship();  // instantiate the space ship
+	  myShip = new Ship(this, engine);  // instantiate the space ship
 	  engine.add(myShip);
-	  engine.add(new Launcher());
+	  engine.add(new Launcher(this, engine));
 	}
 
 	public void draw() {
@@ -109,24 +109,24 @@ public class MyVideoGame extends PApplet {
 	// keyboard direction
 	public void keyPressed() {
 	  // lefty or righty control
-	  if (key == 'w' || key == 'W' || key == '5') upKey = true;
-	  if (key == 'a' || key == 'A' || key == '1') leftKey = true;
-	  if (key == 's' || key == 'S' || key == '2') downKey = true;
-	  if (key == 'd' || key == 'D' || key == '3') rightKey = true;
-	  if (key == 'e' || key == 'E' || key == '6') forwardKey = true;
-	  if (key == 'q' || key == 'Q' || key == '4') backwardKey = true;
-	  if (key == ' ') spaceKey = true;
+	  if (key == 'w' || key == 'W' || key == '5') {myShip.upKey = true;}
+	  if (key == 'a' || key == 'A' || key == '1') {myShip.leftKey = true;}
+	  if (key == 's' || key == 'S' || key == '2') {myShip.downKey = true;}
+	  if (key == 'd' || key == 'D' || key == '3') {myShip.rightKey = true;}
+	  if (key == 'e' || key == 'E' || key == '6') {myShip.forwardKey = true;}
+	  if (key == 'q' || key == 'Q' || key == '4') {myShip.backwardKey = true;}
+	  if (key == ' ') {myShip.spaceKey = true;}
 	}
 
 	public void keyReleased() {
 	  // lefty or righty control
-	  if (key == 'w' || key == 'W' || key == '5') upKey = false;
-	  if (key == 'a' || key == 'A' || key == '1') leftKey = false;
-	  if (key == 's' || key == 'S' || key == '2') downKey = false;
-	  if (key == 'd' || key == 'D' || key == '3') rightKey = false;
-	  if (key == 'e' || key == 'E' || key == '6') forwardKey = false;
-	  if (key == 'q' || key == 'Q' || key == '4') backwardKey = false;  
-	  if (key == ' ') spaceKey = false;
+	  if (key == 'w' || key == 'W' || key == '5') {myShip.upKey = false;}
+	  if (key == 'a' || key == 'A' || key == '1') {myShip.leftKey = false;}
+	  if (key == 's' || key == 'S' || key == '2') {myShip.downKey = false;}
+	  if (key == 'd' || key == 'D' || key == '3') {myShip.rightKey = false;}
+	  if (key == 'e' || key == 'E' || key == '6') {myShip.forwardKey = false;}
+	  if (key == 'q' || key == 'Q' || key == '4') {myShip.backwardKey = false;}  
+	  if (key == ' ') {myShip.spaceKey = false;}
 	}
 	
 	public void settings() {  size(600, 600, P3D);  smooth(); }

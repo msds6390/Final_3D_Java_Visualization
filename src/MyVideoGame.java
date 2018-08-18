@@ -53,13 +53,14 @@ public class MyVideoGame extends PApplet {
 	public boolean spaceKey;
 	public boolean forwardKey;
 	public boolean backwardKey;
-	public int score = 0;
+	public int score;
 
 	public void setup() {
 	  textAlign(CENTER);
 	  
 	  stroke(0);
 	  strokeWeight(1);
+	  score = 0;
 	  ss = new StarSystem(this);
 	  ss.addStar();
 	  engine = new ArrayList<GameObject>(10000); // instantiate the list - Arbitrary number of objects to create

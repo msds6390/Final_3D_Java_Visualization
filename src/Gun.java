@@ -8,8 +8,10 @@ public abstract class Gun {
 		  // cooldown is how much you recharge so far
 		  float cooldown, threshold;  
 		  
+		  public Gun() {}
+		  
 		  // default constructor
-		  Gun (PApplet p, ArrayList<GameObject> eng) {
+		  public Gun (PApplet p, ArrayList<GameObject> eng) {
 			  parent = p;
 			  engine = eng;
 		  }

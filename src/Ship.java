@@ -4,11 +4,20 @@ import processing.core.PApplet;
 public class Ship extends GameObject {
 	PApplet parent;
 	ArrayList<GameObject> engine;
+	boolean upKey;
+	boolean leftKey;
+	boolean downKey;
+	boolean rightKey;
+	boolean spaceKey;
+	boolean forwardKey;
+	boolean backwardKey;
+	Gun myGun;
+	int shipSpeed;
 //	public Ship() {
 //		// TODO Auto-generated constructor stub
 //	}
 
-	  Gun myGun;
+	public Ship() {}
 
 	  // constructor
 	  public Ship(PApplet p, ArrayList<GameObject> eng) {
@@ -25,6 +34,7 @@ public class Ship extends GameObject {
 	    //myGun = new BasicGun();
 	    //myGun = new MachineGun();
 	    myGun = new vGun();
+	    shipSpeed = 5;
 	  }
 
 	  // 3 methods (functions)
@@ -63,16 +73,6 @@ public class Ship extends GameObject {
 
 	  public boolean hasDied() {
 	    if (hp <= 0) {
-	      //for (int j = 0; j < 5; j++) {
-	      //  engine.add(new Particle(x, y, z));
-	      //}
-	      //fill(175, 0, 42);
-	      //textSize(80);
-	      //text("GAME OVER", 0, 0);
-	      //pushMatrix();
-	      //translate(0, 0, 0);
-	      //engine.add(new Message("GAME OVER", 0, 0, -500, 40));
-	      //popMatrix();
 	      return true;
 	    }
 	    return false;

@@ -5,7 +5,8 @@ public class Enemy extends GameObject {
 	PApplet parent;
 	ArrayList<GameObject> engine;
 	public Enemy() {}
-	  public Enemy(PApplet p, ArrayList<GameObject> eng, float incomingX, float incomingY, float incomingZ) {
+
+	public Enemy(PApplet p, ArrayList<GameObject> eng, float incomingX, float incomingY, float incomingZ) {
 	    parent = p;
 	    engine = eng;
 		x = incomingX;
@@ -15,18 +16,18 @@ public class Enemy extends GameObject {
 	    dy = 0;
 	    dz = +10;
 	    hp = 5;
-	  }
+	}
 	  
-	  public void show() {
+	public void show() {
 	    parent.pushMatrix();
 	    parent.translate(x, y, z);
 	    parent.fill(0xffEE7036); // orange
 	    parent.box(40);
-	    parent.popMatrix();
-	  }
-	  
-	  public void act() {
-	    x = x + dx;
+	    parent.popMatrix();  
+	}
+	
+	public void act() {
+		x = x + dx;
 	    y = y + dy;
 	    z = z + dz;
 	    
@@ -39,7 +40,7 @@ public class Enemy extends GameObject {
 	          hp -= 1;
 	          thing.hp = 0;
 	          for (int j = 0; j < 5; j++) {
-	            engine.add(new Particle(thing.x, thing.y, thing.z));
+	            engine.add(new Particle(parent, engine, thing.x, thing.y, thing.z));
 	          }
 	        }
 	      }
@@ -49,11 +50,25 @@ public class Enemy extends GameObject {
 	          hp -= 1;
 	          thing.hp -= 1;
 	          for (int j = 0; j < 5; j++) {
-	            engine.add(new Particle(thing.x, thing.y, thing.z));
+	            engine.add(new Particle(parent, engine, thing.x, thing.y, thing.z));
 	          }          
 	        }
 	      } 
 	      i++;
 	    }
 	  }
+
+	//private boolean recRect(float x, float y, float z, int i, int j, float x2, float y2, float z2, int k, int l) {
+	private boolean recRect(float r1x, float r1y, float r1z, float r1h, float r1w, float r2x, float r2y, float r2z, float r2h, float r2w) {
+		if (r1x + r1w >= r2x &&
+				r1x <= r2x + r2w &&
+		        r1y + r1h >= r2y &&
+		        r1y <= r2y +r2h &&
+		        r1z + r1w >= r2z &&
+		        r1z <= r2z + r2w
+		    ) {
+		        return true;
+		    }
+		        return false;   
+	}
 }

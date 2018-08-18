@@ -32,7 +32,7 @@ public class Launcher extends GameObject {
 	  public void act() {
 	    if (parent.frameCount == 10 ) {
 	      parent.pushMatrix();
-	      engine.add(new Message("LEVEL 1", parent.width/2, parent.height/4, -1000, 40));
+	      engine.add(new Message(parent, engine, "LEVEL 1", parent.width/2, parent.height/4, -1000, 40));
 	      parent.popMatrix();
 	    //} else if(score == 10) {
 	    //  engine.add(new Message("LEVEL 2", width/2, height/4, -1000, 40));
@@ -42,7 +42,7 @@ public class Launcher extends GameObject {
 	      straightLine(100);
 	    } else if (parent.frameCount == 3000) {
 	      parent.pushMatrix();
-	      engine.add(new Message("LEVEL 2", parent.width/2, parent.height/4, -1000, 40));
+	      engine.add(new Message(parent, engine, "LEVEL 2", parent.width/2, parent.height/4, -1000, 40));
 	      parent.popMatrix();
 	      straightLine(400);
 	    } else if (parent.frameCount < 2000) {
@@ -56,7 +56,7 @@ public class Launcher extends GameObject {
 	  public void straightLine(float incomingX) {
 	    x = incomingX;
 	    if (parent.frameCount % 100 == 0) {
-	      engine.add(new Enemy(x, y, z));
+	      engine.add(new Enemy(parent, engine, x, y, z));
 	    }
 	  }
 
@@ -66,7 +66,7 @@ public class Launcher extends GameObject {
 	    x = parent.random(50, parent.width - 50);
 	    y = parent.random(50, parent.height - 50);
 	    if (parent.frameCount % 100 == 0) {
-	      engine.add(new FastEnemy(x, y, z));
+	      engine.add(new FastEnemy(parent, engine, x, y, z));
 	    }
 	  }
 

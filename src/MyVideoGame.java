@@ -42,25 +42,29 @@ public class MyVideoGame extends PApplet {
 
 	public int numStars = 400;
 	public int timer = 0;
-	public float shipSpeed = 5;
+//	public float shipSpeed = 5;
+	public int shipSpeed = 5;
 	public ArrayList<GameObject> engine;    // ArrayList that stores many different types of objects - bullets, spaceships, particle effects, etc.
 	                                 // data structure that holds things needed to be processed
-	public boolean upKey, leftKey, downKey, rightKey, spaceKey, forwardKey, backwardKey;
+	public boolean upKey;
+	public boolean leftKey;
+	public boolean downKey;
+	public boolean rightKey;
+	public boolean spaceKey;
+	public boolean forwardKey;
+	public boolean backwardKey;
 	public int score = 0;
-
-
 
 	public void setup() {
 	  textAlign(CENTER);
 	  
-	  
 	  stroke(0);
 	  strokeWeight(1);
-	  ss = new StarSystem(this);
+	  ss = new StarSystem();
 	  ss.addStar();
 	  engine = new ArrayList<GameObject>(10000); // instantiate the list - Arbitrary number of objects to create
 	  rectMode(CENTER);
-	  myShip = new Ship(this);  // instantiate the space ship
+	  myShip = new Ship();  // instantiate the space ship
 	  engine.add(myShip);
 	  engine.add(new Launcher());
 	}

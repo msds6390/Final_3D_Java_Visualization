@@ -5,24 +5,29 @@ import processing.core.PApplet;
 public class StarSystem {
 	PApplet parent;
 	ArrayList<Star> stars;
+	ArrayList<GameObject> engine;
+	int numStars;
 
-	  public StarSystem(PApplet p){
-	    parent = p;
-		stars = new ArrayList<Star>();
-	  }
-
-	  public void addStar() {
-	    for (int i = 0; i < numStars; i ++) {
-	      stars.add(new Star());
-	    }
-
-	  }
-
-	  public void run() {
+	//public StarSystem() {}
+	  
+	public StarSystem(){
+		//parent = p;
+	    //engine = eng;
+	    numStars = 400;
+		stars = new ArrayList<Star>();  
+	}
+  
+	public void addStar() {
+		for (int i = 0; i < numStars; i ++) {
+	      stars.add(new Star(parent, engine));
+	    }  
+	}
+  
+	public void run() {
 	    for (int i = 0; i < stars.size(); i ++ ) {
 	      Star s = stars.get(i);
 	      s.update();
 	      s.draw();
-	    }
-	  }
+	    }  
+	}
 }

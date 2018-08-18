@@ -1,7 +1,10 @@
+import java.util.ArrayList;
+
 import processing.core.PApplet;
 
 public class Message extends GameObject {
 	PApplet parent;
+	ArrayList<GameObject> engine;
 	//public Message() {
 		// TODO Auto-generated constructor stub
 	//}
@@ -12,8 +15,10 @@ public class Message extends GameObject {
 	  String msg;
 
 
-	  Message(String _msg, float _x, float _y, float _z, float _size) {
-	    x = _x;
+	  Message(PApplet p, ArrayList<GameObject> eng, String _msg, float _x, float _y, float _z, float _size) {
+	    parent = p;
+	    engine = eng;
+		x = _x;
 	    y = _y;
 	    z = _z;
 	    msg = _msg;

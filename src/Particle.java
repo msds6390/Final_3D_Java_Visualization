@@ -1,8 +1,13 @@
+import java.util.ArrayList;
+
 import processing.core.PApplet; 
 public class Particle extends GameObject {
 	PApplet parent;
-	 Particle(float incomingX, float incomingY, float incomingZ) {
-		    x = incomingX;
+	ArrayList<GameObject> engine;
+	 Particle(PApplet p, ArrayList<GameObject> eng, float incomingX, float incomingY, float incomingZ) {
+		    parent = p;
+		    engine = eng;
+		 	x = incomingX;
 		    y = incomingY;
 		    z = incomingZ;
 		    dz = parent.random(-5, 5);

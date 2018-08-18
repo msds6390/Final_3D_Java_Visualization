@@ -1,15 +1,19 @@
+import java.util.ArrayList;
+
 import processing.core.PApplet; 
 
 public class Star extends GameObject {
 	PApplet parent;
+	ArrayList<GameObject> engine;
 	 // Star coordinates in 3D
 	  float x;
 	  float y;
 	  float z;
 
 	  //constructor
-	  Star(PApplet p) {
+	  public Star(PApplet p, ArrayList<GameObject> eng) {
 		parent = p;
+		engine = eng;
 	    x = parent.random(-5000, 5000);  // initialize x pos
 	    y = parent.random(-5000, 5000);  // initialize y pos
 	    z = parent.random(0, 2000);      // initialize z pos

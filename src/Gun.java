@@ -1,12 +1,17 @@
-import processing.core.PApplet; 
+import java.util.ArrayList;
+import processing.core.PApplet;
+
 public abstract class Gun {
 		PApplet parent;
+		ArrayList<GameObject> engine;
 		  // threshold how long it takes before you can shoot again (rate of fire)
 		  // cooldown is how much you recharge so far
 		  float cooldown, threshold;  
 		  
 		  // default constructor
-		  Gun () {
+		  Gun (PApplet p, ArrayList<GameObject> eng) {
+			  parent = p;
+			  engine = eng;
 		  }
 		  
 		  // controls rate of fire

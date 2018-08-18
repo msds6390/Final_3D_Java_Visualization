@@ -24,29 +24,29 @@ public class MyVideoGame extends PApplet {
 	 https://www.youtube.com/watch?v=MJh3blPxcQw
 	 */
 
-	int lightblue = 0xff67D4FF;
-	int darkblue = 0xff2F6A96;
-	int orange = 0xffEE7036;
-	int spacecadet = 0xff05CBFA; // https://rgbcolorcode.com/color/space-cadet
-	int electricgreen = 0xff00E600;
-	int outerspace = 0xff414A4C;
+	public int lightblue = 0xff67D4FF;
+	public int darkblue = 0xff2F6A96;
+	public int orange = 0xffEE7036;
+	public int spacecadet = 0xff05CBFA; // https://rgbcolorcode.com/color/space-cadet
+	public int electricgreen = 0xff00E600;
+	public int outerspace = 0xff414A4C;
 	//color outerSpaceBlack = #000000;
-	int deepspacesparkle = 0xff4A646C;
+	public int deepspacesparkle = 0xff4A646C;
 	//color deepSpaceSparkleWhite = #ffffff;
 	//color darkOrange = #AA5012;
 
-	Ship myShip;
-	StarSystem ss;
-	Star star;
-	Star[] stars;
+	public Ship myShip;
+	public StarSystem ss;
+	public Star star;
+	public Star[] stars;
 
-	int numStars = 400;
-	int timer = 0;
-	float shipSpeed = 5;
-	ArrayList<GameObject> engine;    // ArrayList that stores many different types of objects - bullets, spaceships, particle effects, etc.
+	public int numStars = 400;
+	public int timer = 0;
+	public float shipSpeed = 5;
+	public ArrayList<GameObject> engine;    // ArrayList that stores many different types of objects - bullets, spaceships, particle effects, etc.
 	                                 // data structure that holds things needed to be processed
-	boolean upKey, leftKey, downKey, rightKey, spaceKey, forwardKey, backwardKey;
-	int score = 0;
+	public boolean upKey, leftKey, downKey, rightKey, spaceKey, forwardKey, backwardKey;
+	public int score = 0;
 
 
 
@@ -56,11 +56,11 @@ public class MyVideoGame extends PApplet {
 	  
 	  stroke(0);
 	  strokeWeight(1);
-	  ss = new StarSystem();
+	  ss = new StarSystem(this);
 	  ss.addStar();
 	  engine = new ArrayList<GameObject>(10000); // instantiate the list - Arbitrary number of objects to create
 	  rectMode(CENTER);
-	  myShip = new Ship();  // instantiate the space ship
+	  myShip = new Ship(this);  // instantiate the space ship
 	  engine.add(myShip);
 	  engine.add(new Launcher());
 	}

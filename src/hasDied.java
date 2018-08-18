@@ -1,6 +1,13 @@
+import java.util.ArrayList;
+
 import processing.core.PApplet; 
 public class hasDied extends GameObject {
 	PApplet parent;
+	ArrayList<GameObject> engine;
+	hasDied(PApplet p, ArrayList<GameObject> eng) {
+		parent = p;
+		engine = eng;
+	}
 	public boolean hasDied() {
 	    if (dz > 100 || hp <= 0) {
 	        score += 10;

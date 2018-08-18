@@ -1,8 +1,12 @@
+import java.util.ArrayList;
+
 import processing.core.PApplet;
 public class vGun extends Gun {
 	PApplet parent;
-	vGun(PApplet p) {
+	ArrayList<GameObject> engine;
+	public vGun(PApplet p, ArrayList<GameObject> eng) {
 		parent = p;    
+		engine = eng;
 		threshold = 10;
 		cooldown = 0;
 	}

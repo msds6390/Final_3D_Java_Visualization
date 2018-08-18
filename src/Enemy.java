@@ -1,8 +1,14 @@
+import java.util.ArrayList;
+
 import processing.core.PApplet; 
 public class Enemy extends GameObject {
 	PApplet parent;
-	  Enemy(float incomingX, float incomingY, float incomingZ) {
-	    x = incomingX;
+	ArrayList<GameObject> engine;
+	public Enemy() {}
+	  public Enemy(PApplet p, ArrayList<GameObject> eng, float incomingX, float incomingY, float incomingZ) {
+	    parent = p;
+	    engine = eng;
+		x = incomingX;
 	    y = incomingY;
 	    z = incomingZ;
 	    dx = 0;

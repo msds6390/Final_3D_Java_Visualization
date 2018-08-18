@@ -1,9 +1,12 @@
+import java.util.ArrayList;
+
 import processing.core.PApplet; 
 public class Bullet extends GameObject {
 	PApplet parent;
+	ArrayList<GameObject> engine;
 	Ship myShip; // Not sure this will call the ship, Java may not have global variables
 	  // default constructor
-	  Bullet() {
+	  public Bullet() {
 	    x = myShip.x;
 	    y = myShip.y;
 	    z = myShip.z;
@@ -14,8 +17,10 @@ public class Bullet extends GameObject {
 	  }
 	  
 	  // overloaded constructor
-	  Bullet(float incomingDX, float incomingDY, float incomingDZ) {
-	    x = myShip.x;
+	  public Bullet(PApplet p, ArrayList<GameObject> eng, float incomingDX, float incomingDY, float incomingDZ) {
+	    parent = p;
+	    engine = eng;
+		x = myShip.x;
 	    y = myShip.y;
 	    z = myShip.z;
 	    dx = incomingDX;

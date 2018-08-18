@@ -6,9 +6,9 @@ public class StarSystem {
 	PApplet parent;
 	ArrayList<Star> stars;
 
-	  StarSystem(PApplet p){
+	  public StarSystem(PApplet p){
 	    parent = p;
-		stars = new ArrayList<Star>(this);
+		stars = new ArrayList<Star>();
 	  }
 
 	  public void addStar() {

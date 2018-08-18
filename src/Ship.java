@@ -1,6 +1,9 @@
+import java.util.ArrayList;
+
 import processing.core.PApplet; 
 public class Ship extends GameObject {
 	PApplet parent;
+	ArrayList<GameObject> engine;
 //	public Ship() {
 //		// TODO Auto-generated constructor stub
 //	}
@@ -8,8 +11,9 @@ public class Ship extends GameObject {
 	  Gun myGun;
 
 	  // constructor
-	  Ship(PApplet p) {
+	  public Ship(PApplet p, ArrayList<GameObject> eng) {
 		parent = p;
+		engine = eng;
 	    x = parent.width/2;  // start at center of screen
 	    y = parent.width/2;  // start at center of screen
 	    z = parent.width/2;

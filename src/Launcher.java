@@ -1,12 +1,18 @@
+import java.util.ArrayList;
+
 import processing.core.PApplet; 
 public class Launcher extends GameObject {
 	PApplet parent;
+	ArrayList<GameObject> engine;
 	//public Launcher() {
 		// TODO Auto-generated constructor stub
 	//}
 
-	  Launcher() {
-	    x = parent.width/2;
+	public Launcher(){}
+	  public Launcher(PApplet p, ArrayList<GameObject> eng) {
+	    parent = p;
+	    engine = eng;
+		x = parent.width/2;
 	    y = parent.height/2;
 	    z = -10000;
 	    dx = 0;

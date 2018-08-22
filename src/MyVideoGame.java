@@ -53,7 +53,7 @@ public class MyVideoGame extends PApplet {
 	public boolean spaceKey;
 	public boolean forwardKey;
 	public boolean backwardKey;
-	public int score;
+	public static int score;
 
 	public void setup() {
 	  textAlign(CENTER);
